@@ -9,6 +9,12 @@ import UIKit
 
 class PointButton: UIButton {
     
+    override var isEnabled: Bool {
+        didSet {
+            backgroundColor = isEnabled ? .systemBlue : .lightGray
+        }
+    }
+    
     init(title: String) {
         super.init(frame: .zero)
         
