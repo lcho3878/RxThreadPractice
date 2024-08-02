@@ -16,12 +16,7 @@ class PasswordViewController: UIViewController {
     
     let passwordTextField = SignTextField(placeholderText: "비밀번호를 입력해주세요")
     let nextButton = PointButton(title: "다음")
-    let validLabel = {
-        let view = UILabel()
-        view.text = "비밀번호는 8자 이상 입력해주세요"
-        view.textColor = .systemRed
-        return view
-    }()
+    let validLabel = ValidationLabel(valid: "사용가능한 비밀번호입니다.", nonValid: "비밀번호는 8자 이상 입력해주세요.")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +59,7 @@ class PasswordViewController: UIViewController {
         passwordTextField.rx.text.orEmpty
             .map { $0.count >= 8 }
             .bind(with: self) { owner, value in
-                owner.validLabel.rx.isHidden.onNext(value)
+                owner.validLabel.rx.isValid.onNext(value)
                 owner.nextButton.rx.isEnabled.onNext(value)
             }
             .disposed(by: disposeBag)

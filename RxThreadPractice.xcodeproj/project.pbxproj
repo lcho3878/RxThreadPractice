@@ -29,6 +29,7 @@
 		545CC4EB2C5CB01500EE5F60 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 545CC4EA2C5CB01500EE5F60 /* SnapKit */; };
 		545CC4EE2C5CB04400EE5F60 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 545CC4ED2C5CB04400EE5F60 /* RxCocoa */; };
 		545CC4F02C5CB04400EE5F60 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 545CC4EF2C5CB04400EE5F60 /* RxSwift */; };
+		545CC4F22C5CB5CE00EE5F60 /* ValidationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F12C5CB5CE00EE5F60 /* ValidationLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		545CC4D82C5CAFE900EE5F60 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		545CC4D92C5CAFE900EE5F60 /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		545CC4E72C5CB00200EE5F60 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		545CC4F12C5CB5CE00EE5F60 /* ValidationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				545CC4D52C5CAFE900EE5F60 /* PointButton.swift */,
+				545CC4F12C5CB5CE00EE5F60 /* ValidationLabel.swift */,
 				545CC4D62C5CAFE900EE5F60 /* SignTextField.swift */,
 			);
 			path = CustomView;
@@ -247,6 +250,7 @@
 				545CC4B72C5CAFC400EE5F60 /* AppDelegate.swift in Sources */,
 				545CC4B92C5CAFC400EE5F60 /* SceneDelegate.swift in Sources */,
 				545CC4E12C5CAFE900EE5F60 /* SearchTableViewCell.swift in Sources */,
+				545CC4F22C5CB5CE00EE5F60 /* ValidationLabel.swift in Sources */,
 				545CC4E62C5CAFE900EE5F60 /* SignInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
