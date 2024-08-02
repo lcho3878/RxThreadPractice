@@ -13,6 +13,22 @@
 		545CC4BE2C5CAFC400EE5F60 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 545CC4BD2C5CAFC400EE5F60 /* Base */; };
 		545CC4C02C5CAFC500EE5F60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 545CC4BF2C5CAFC500EE5F60 /* Assets.xcassets */; };
 		545CC4C32C5CAFC500EE5F60 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 545CC4C22C5CAFC500EE5F60 /* Base */; };
+		545CC4DB2C5CAFE900EE5F60 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4CA2C5CAFE800EE5F60 /* BirthdayViewController.swift */; };
+		545CC4DC2C5CAFE900EE5F60 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4CB2C5CAFE800EE5F60 /* NicknameViewController.swift */; };
+		545CC4DD2C5CAFE900EE5F60 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4CC2C5CAFE800EE5F60 /* PhoneViewController.swift */; };
+		545CC4DE2C5CAFE900EE5F60 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4CE2C5CAFE800EE5F60 /* PasswordViewController.swift */; };
+		545CC4DF2C5CAFE900EE5F60 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4CF2C5CAFE800EE5F60 /* SignUpViewController.swift */; };
+		545CC4E02C5CAFE900EE5F60 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4D12C5CAFE800EE5F60 /* DetailViewController.swift */; };
+		545CC4E12C5CAFE900EE5F60 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4D22C5CAFE800EE5F60 /* SearchTableViewCell.swift */; };
+		545CC4E22C5CAFE900EE5F60 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4D32C5CAFE800EE5F60 /* SearchViewController.swift */; };
+		545CC4E32C5CAFE900EE5F60 /* PointButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4D52C5CAFE900EE5F60 /* PointButton.swift */; };
+		545CC4E42C5CAFE900EE5F60 /* SignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4D62C5CAFE900EE5F60 /* SignTextField.swift */; };
+		545CC4E52C5CAFE900EE5F60 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4D82C5CAFE900EE5F60 /* SignInViewController.swift */; };
+		545CC4E62C5CAFE900EE5F60 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4D92C5CAFE900EE5F60 /* SignInViewModel.swift */; };
+		545CC4E82C5CB00200EE5F60 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4E72C5CB00200EE5F60 /* Resource.swift */; };
+		545CC4EB2C5CB01500EE5F60 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 545CC4EA2C5CB01500EE5F60 /* SnapKit */; };
+		545CC4EE2C5CB04400EE5F60 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 545CC4ED2C5CB04400EE5F60 /* RxCocoa */; };
+		545CC4F02C5CB04400EE5F60 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 545CC4EF2C5CB04400EE5F60 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +40,19 @@
 		545CC4BF2C5CAFC500EE5F60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		545CC4C22C5CAFC500EE5F60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		545CC4C42C5CAFC500EE5F60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		545CC4CA2C5CAFE800EE5F60 /* BirthdayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
+		545CC4CB2C5CAFE800EE5F60 /* NicknameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		545CC4CC2C5CAFE800EE5F60 /* PhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
+		545CC4CE2C5CAFE800EE5F60 /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		545CC4CF2C5CAFE800EE5F60 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		545CC4D12C5CAFE800EE5F60 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		545CC4D22C5CAFE800EE5F60 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		545CC4D32C5CAFE800EE5F60 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		545CC4D52C5CAFE900EE5F60 /* PointButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointButton.swift; sourceTree = "<group>"; };
+		545CC4D62C5CAFE900EE5F60 /* SignTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignTextField.swift; sourceTree = "<group>"; };
+		545CC4D82C5CAFE900EE5F60 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		545CC4D92C5CAFE900EE5F60 /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		545CC4E72C5CB00200EE5F60 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545CC4F02C5CB04400EE5F60 /* RxSwift in Frameworks */,
+				545CC4EE2C5CB04400EE5F60 /* RxCocoa in Frameworks */,
+				545CC4EB2C5CB01500EE5F60 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +88,11 @@
 		545CC4B52C5CAFC400EE5F60 /* RxThreadPractice */ = {
 			isa = PBXGroup;
 			children = (
+				545CC4D72C5CAFE900EE5F60 /* CustomView */,
+				545CC4D42C5CAFE800EE5F60 /* Search */,
+				545CC4DA2C5CAFE900EE5F60 /* SignIn */,
+				545CC4D02C5CAFE800EE5F60 /* SignUp */,
+				545CC4CD2C5CAFE800EE5F60 /* SignUpOptional */,
 				545CC4B62C5CAFC400EE5F60 /* AppDelegate.swift */,
 				545CC4B82C5CAFC400EE5F60 /* SceneDelegate.swift */,
 				545CC4BA2C5CAFC400EE5F60 /* ViewController.swift */,
@@ -63,8 +100,56 @@
 				545CC4BF2C5CAFC500EE5F60 /* Assets.xcassets */,
 				545CC4C12C5CAFC500EE5F60 /* LaunchScreen.storyboard */,
 				545CC4C42C5CAFC500EE5F60 /* Info.plist */,
+				545CC4E72C5CB00200EE5F60 /* Resource.swift */,
 			);
 			path = RxThreadPractice;
+			sourceTree = "<group>";
+		};
+		545CC4CD2C5CAFE800EE5F60 /* SignUpOptional */ = {
+			isa = PBXGroup;
+			children = (
+				545CC4CA2C5CAFE800EE5F60 /* BirthdayViewController.swift */,
+				545CC4CB2C5CAFE800EE5F60 /* NicknameViewController.swift */,
+				545CC4CC2C5CAFE800EE5F60 /* PhoneViewController.swift */,
+			);
+			path = SignUpOptional;
+			sourceTree = "<group>";
+		};
+		545CC4D02C5CAFE800EE5F60 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				545CC4CE2C5CAFE800EE5F60 /* PasswordViewController.swift */,
+				545CC4CF2C5CAFE800EE5F60 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		545CC4D42C5CAFE800EE5F60 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				545CC4D12C5CAFE800EE5F60 /* DetailViewController.swift */,
+				545CC4D22C5CAFE800EE5F60 /* SearchTableViewCell.swift */,
+				545CC4D32C5CAFE800EE5F60 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		545CC4D72C5CAFE900EE5F60 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				545CC4D52C5CAFE900EE5F60 /* PointButton.swift */,
+				545CC4D62C5CAFE900EE5F60 /* SignTextField.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		545CC4DA2C5CAFE900EE5F60 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				545CC4D82C5CAFE900EE5F60 /* SignInViewController.swift */,
+				545CC4D92C5CAFE900EE5F60 /* SignInViewModel.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +168,11 @@
 			dependencies = (
 			);
 			name = RxThreadPractice;
+			packageProductDependencies = (
+				545CC4EA2C5CB01500EE5F60 /* SnapKit */,
+				545CC4ED2C5CB04400EE5F60 /* RxCocoa */,
+				545CC4EF2C5CB04400EE5F60 /* RxSwift */,
+			);
 			productName = RxThreadPractice;
 			productReference = 545CC4B32C5CAFC400EE5F60 /* RxThreadPractice.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +201,10 @@
 				Base,
 			);
 			mainGroup = 545CC4AA2C5CAFC400EE5F60;
+			packageReferences = (
+				545CC4E92C5CB01500EE5F60 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				545CC4EC2C5CB04400EE5F60 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 545CC4B42C5CAFC400EE5F60 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +232,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545CC4E52C5CAFE900EE5F60 /* SignInViewController.swift in Sources */,
+				545CC4E82C5CB00200EE5F60 /* Resource.swift in Sources */,
+				545CC4E02C5CAFE900EE5F60 /* DetailViewController.swift in Sources */,
+				545CC4E22C5CAFE900EE5F60 /* SearchViewController.swift in Sources */,
+				545CC4E32C5CAFE900EE5F60 /* PointButton.swift in Sources */,
+				545CC4E42C5CAFE900EE5F60 /* SignTextField.swift in Sources */,
 				545CC4BB2C5CAFC400EE5F60 /* ViewController.swift in Sources */,
+				545CC4DC2C5CAFE900EE5F60 /* NicknameViewController.swift in Sources */,
+				545CC4DF2C5CAFE900EE5F60 /* SignUpViewController.swift in Sources */,
+				545CC4DB2C5CAFE900EE5F60 /* BirthdayViewController.swift in Sources */,
+				545CC4DE2C5CAFE900EE5F60 /* PasswordViewController.swift in Sources */,
+				545CC4DD2C5CAFE900EE5F60 /* PhoneViewController.swift in Sources */,
 				545CC4B72C5CAFC400EE5F60 /* AppDelegate.swift in Sources */,
 				545CC4B92C5CAFC400EE5F60 /* SceneDelegate.swift in Sources */,
+				545CC4E12C5CAFE900EE5F60 /* SearchTableViewCell.swift in Sources */,
+				545CC4E62C5CAFE900EE5F60 /* SignInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +470,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		545CC4E92C5CB01500EE5F60 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		545CC4EC2C5CB04400EE5F60 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		545CC4EA2C5CB01500EE5F60 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 545CC4E92C5CB01500EE5F60 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		545CC4ED2C5CB04400EE5F60 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 545CC4EC2C5CB04400EE5F60 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		545CC4EF2C5CB04400EE5F60 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 545CC4EC2C5CB04400EE5F60 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 545CC4AB2C5CAFC400EE5F60 /* Project object */;
 }
