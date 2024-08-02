@@ -16,7 +16,8 @@ class PasswordViewController: UIViewController {
     
     let passwordTextField = SignTextField(placeholderText: "비밀번호를 입력해주세요")
     let nextButton = PointButton(title: "다음")
-    let validLabel = ValidationLabel(valid: "사용가능한 비밀번호입니다.", nonValid: "비밀번호는 8자 이상 입력해주세요.")
+//    let validLabel = ValidationLabel(valid: "사용가능한 비밀번호입니다.", nonValid: "비밀번호는 8자 이상 입력해주세요.")
+//    let validLabel = ValidationLabel<<#T: ValidationResult#>>(validation: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class PasswordViewController: UIViewController {
     func configureLayout() {
         view.addSubview(passwordTextField)
         view.addSubview(nextButton)
-        view.addSubview(validLabel)
+//        view.addSubview(validLabel)
          
         passwordTextField.snp.makeConstraints { make in
             make.height.equalTo(50)
@@ -41,12 +42,12 @@ class PasswordViewController: UIViewController {
             make.top.equalTo(passwordTextField.snp.bottom).offset(30)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
-        
-        validLabel.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField.snp.bottom)
-            $0.bottom.equalTo(nextButton.snp.top)
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-        }
+//        
+//        validLabel.snp.makeConstraints {
+//            $0.top.equalTo(passwordTextField.snp.bottom)
+//            $0.bottom.equalTo(nextButton.snp.top)
+//            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+//        }
     }
     
     private func bind() {
@@ -59,7 +60,7 @@ class PasswordViewController: UIViewController {
         passwordTextField.rx.text.orEmpty
             .map { $0.count >= 8 }
             .bind(with: self) { owner, value in
-                owner.validLabel.rx.isValid.onNext(value)
+//                owner.validLabel.rx.isValid.onNext(value)
                 owner.nextButton.rx.isEnabled.onNext(value)
             }
             .disposed(by: disposeBag)
