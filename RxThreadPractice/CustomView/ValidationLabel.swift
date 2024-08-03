@@ -56,20 +56,3 @@ enum Validation {
     case success(ValidationResult)
     case fail(ValidationResult)
 }
-
-enum PhoneValidation: ValidationResult {
-    case success
-    case lengthError
-    case notNumberError
-    
-    var message: String {
-        switch self {
-        case .success:
-            return "사용 가능한 휴대폰 번호"
-        case .lengthError:
-            return "10자 이상만 가능"
-        case .notNumberError:
-            return "숫자만 입력 가능"
-        }
-    }
-}
