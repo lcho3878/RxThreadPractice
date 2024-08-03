@@ -129,6 +129,7 @@
 		545CC4D42C5CAFE800EE5F60 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				545CC4D52C5CAFE900EE5F60 /* PointButton.swift */,
 				545CC4D12C5CAFE800EE5F60 /* DetailViewController.swift */,
 				545CC4D22C5CAFE800EE5F60 /* SearchTableViewCell.swift */,
 				545CC4D32C5CAFE800EE5F60 /* SearchViewController.swift */,
@@ -139,7 +140,6 @@
 		545CC4D72C5CAFE900EE5F60 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				545CC4D52C5CAFE900EE5F60 /* PointButton.swift */,
 				545CC4F12C5CB5CE00EE5F60 /* ValidationLabel.swift */,
 				545CC4D62C5CAFE900EE5F60 /* SignTextField.swift */,
 			);

@@ -7,8 +7,12 @@
  
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class BirthdayViewController: UIViewController {
+    
+    private let disposeBag = DisposeBag()
     
     let birthDayPicker: UIDatePicker = {
         let picker = UIDatePicker()
@@ -18,13 +22,8 @@ class BirthdayViewController: UIViewController {
         picker.maximumDate = Date()
         return picker
     }()
-    
-    let infoLabel: UILabel = {
-       let label = UILabel()
-        label.textColor = Color.black
-        label.text = "만 17세 이상만 가입 가능합니다."
-        return label
-    }()
+
+    let infoLabel = ValidationLabel(validation: nil)
     
     let containerStackView: UIStackView = {
         let stack = UIStackView()
@@ -66,13 +65,17 @@ class BirthdayViewController: UIViewController {
   
     let nextButton = PointButton(title: "가입하기")
     
+    let year = PublishSubject<Int>()
+    let month = PublishSubject<Int>()
+    let day = PublishSubject<Int>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = Color.white
         
         configureLayout()
-        
+        bind()
         nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
     }
     
@@ -113,4 +116,68 @@ class BirthdayViewController: UIViewController {
         }
     }
 
+    private func bind() {
+        year.bind(with: self) { owner, year in
+            owner.yearLabel.rx.text.onNext("\(year)년")
+        }
+        .disposed(by: disposeBag)
+        
+        month.bind(with: self) { owner, month in
+            owner.monthLabel.rx.text.onNext("\(month)월")
+        }
+        .disposed(by: disposeBag)
+        
+        day.bind(with: self) { owner, day in
+            owner.dayLabel.rx.text.onNext("\(day)일")
+        }
+        .disposed(by: disposeBag)
+        
+        birthDayPicker.rx.date
+            .bind(with: self) { owner, date in
+                let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
+                guard let year = components.year,
+                let month = components.month,
+                let day = components.day else { return }
+                owner.year.onNext(year)
+                owner.month.onNext(month)
+                owner.day.onNext(day)
+            }
+            .disposed(by: disposeBag)
+        
+        birthDayPicker.rx.date
+            .map{
+                let target = Calendar.current.date(byAdding: .year, value: -17, to: Date())!
+                guard target > $0 else { return .fail(BirthdayValidation.fail)}
+                return .success(BirthdayValidation.success)
+            }
+            .bind(with: self) { owner, value in
+                owner.infoLabel.rx.validation.onNext(value)
+                
+            }
+            .disposed(by: disposeBag)
+        
+        birthDayPicker.rx.date
+            .map {
+                let target = Calendar.current.date(byAdding: .year, value: -17, to: Date())!
+                return target > $0
+            }
+            .bind(with: self) { owner, value in
+                owner.nextButton.rx.isEnabled.onNext(value)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    enum BirthdayValidation: ValidationResult {
+        case success
+        case fail
+        
+        var message: String {
+            switch self {
+            case .success:
+                return "가입 가능한 나이입니다."
+            case .fail:
+                return "만 17세 이상만 가입 가능합니다."
+            }
+        }
+    }
 }
