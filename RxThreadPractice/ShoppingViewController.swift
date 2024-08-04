@@ -27,6 +27,8 @@ struct TodoDummy {
 
 final class ShoppingViewController: UIViewController {
     
+    private let disposeBag = DisposeBag()
+    
     private let grayView = {
         let view = UIView()
         view.backgroundColor = .systemGray5
@@ -50,9 +52,14 @@ final class ShoppingViewController: UIViewController {
     
     private let tableView = {
         let view = UITableView()
-        view.backgroundColor = .lightGray
+        view.register(TodoCell.self, forCellReuseIdentifier: TodoCell.id)
         return view
     }()
+    
+    var data = TodoDummy.dummy
+    
+//    lazy var list = Observable.just(data)
+    lazy var list = BehaviorSubject(value: data)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +101,24 @@ final class ShoppingViewController: UIViewController {
     
     private func bind() {
 
+        
+        list.bind(to: tableView.rx.items(cellIdentifier: TodoCell.id, cellType: TodoCell.self)) { row, element, cell in
+            cell.configureDate(element)
+        }
+        .disposed(by: disposeBag)
+        
+        addButton.rx.tap
+            .withLatestFrom(searchTextField.rx.text.orEmpty) { _, text in
+                return text
+            }
+            .subscribe(with: self) { owner, text in
+                guard !text.isEmpty else { return }
+                owner.data.append(Todo(content: text))
+                owner.list.onNext(owner.data)
+            }
+            .disposed(by: disposeBag)
+        
+        
     }
     
 }
