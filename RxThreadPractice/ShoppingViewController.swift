@@ -104,6 +104,19 @@ final class ShoppingViewController: UIViewController {
         
         list.bind(to: tableView.rx.items(cellIdentifier: TodoCell.id, cellType: TodoCell.self)) { row, element, cell in
             cell.configureDate(element)
+            cell.checkButton.rx.tap
+                .bind(with: self) { owner, _ in
+                    owner.data[row].isComleted.toggle()
+                    owner.list.onNext(owner.data)
+                }
+                .disposed(by: cell.disposeBag)
+            
+            cell.starButton.rx.tap
+                .bind(with: self) { owner, _ in
+                    owner.data[row].isStared.toggle()
+                    owner.list.onNext(owner.data)
+                }
+                .disposed(by: cell.disposeBag)
         }
         .disposed(by: disposeBag)
         
