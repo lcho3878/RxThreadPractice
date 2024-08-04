@@ -30,6 +30,8 @@
 		545CC4EE2C5CB04400EE5F60 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 545CC4ED2C5CB04400EE5F60 /* RxCocoa */; };
 		545CC4F02C5CB04400EE5F60 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 545CC4EF2C5CB04400EE5F60 /* RxSwift */; };
 		545CC4F22C5CB5CE00EE5F60 /* ValidationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F12C5CB5CE00EE5F60 /* ValidationLabel.swift */; };
+		545CC4F42C5F575200EE5F60 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F32C5F575200EE5F60 /* ShoppingViewController.swift */; };
+		545CC4F62C5F7CE000EE5F60 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F52C5F7CE000EE5F60 /* TodoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		545CC4D92C5CAFE900EE5F60 /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		545CC4E72C5CB00200EE5F60 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		545CC4F12C5CB5CE00EE5F60 /* ValidationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationLabel.swift; sourceTree = "<group>"; };
+		545CC4F32C5F575200EE5F60 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
+		545CC4F52C5F7CE000EE5F60 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				545CC4C12C5CAFC500EE5F60 /* LaunchScreen.storyboard */,
 				545CC4C42C5CAFC500EE5F60 /* Info.plist */,
 				545CC4E72C5CB00200EE5F60 /* Resource.swift */,
+				545CC4F32C5F575200EE5F60 /* ShoppingViewController.swift */,
+				545CC4F52C5F7CE000EE5F60 /* TodoCell.swift */,
 			);
 			path = RxThreadPractice;
 			sourceTree = "<group>";
@@ -243,6 +249,8 @@
 				545CC4E42C5CAFE900EE5F60 /* SignTextField.swift in Sources */,
 				545CC4BB2C5CAFC400EE5F60 /* ViewController.swift in Sources */,
 				545CC4DC2C5CAFE900EE5F60 /* NicknameViewController.swift in Sources */,
+				545CC4F42C5F575200EE5F60 /* ShoppingViewController.swift in Sources */,
+				545CC4F62C5F7CE000EE5F60 /* TodoCell.swift in Sources */,
 				545CC4DF2C5CAFE900EE5F60 /* SignUpViewController.swift in Sources */,
 				545CC4DB2C5CAFE900EE5F60 /* BirthdayViewController.swift in Sources */,
 				545CC4DE2C5CAFE900EE5F60 /* PasswordViewController.swift in Sources */,
