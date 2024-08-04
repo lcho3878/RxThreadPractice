@@ -32,6 +32,7 @@
 		545CC4F22C5CB5CE00EE5F60 /* ValidationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F12C5CB5CE00EE5F60 /* ValidationLabel.swift */; };
 		545CC4F42C5F575200EE5F60 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F32C5F575200EE5F60 /* ShoppingViewController.swift */; };
 		545CC4F62C5F7CE000EE5F60 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F52C5F7CE000EE5F60 /* TodoCell.swift */; };
+		545CC4F82C5F8AD600EE5F60 /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F72C5F8AD600EE5F60 /* TodoDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		545CC4F12C5CB5CE00EE5F60 /* ValidationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationLabel.swift; sourceTree = "<group>"; };
 		545CC4F32C5F575200EE5F60 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		545CC4F52C5F7CE000EE5F60 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		545CC4F72C5F8AD600EE5F60 /* TodoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				545CC4C42C5CAFC500EE5F60 /* Info.plist */,
 				545CC4E72C5CB00200EE5F60 /* Resource.swift */,
 				545CC4F32C5F575200EE5F60 /* ShoppingViewController.swift */,
+				545CC4F72C5F8AD600EE5F60 /* TodoDetailViewController.swift */,
 				545CC4F52C5F7CE000EE5F60 /* TodoCell.swift */,
 			);
 			path = RxThreadPractice;
@@ -248,6 +251,7 @@
 				545CC4E32C5CAFE900EE5F60 /* PointButton.swift in Sources */,
 				545CC4E42C5CAFE900EE5F60 /* SignTextField.swift in Sources */,
 				545CC4BB2C5CAFC400EE5F60 /* ViewController.swift in Sources */,
+				545CC4F82C5F8AD600EE5F60 /* TodoDetailViewController.swift in Sources */,
 				545CC4DC2C5CAFE900EE5F60 /* NicknameViewController.swift in Sources */,
 				545CC4F42C5F575200EE5F60 /* ShoppingViewController.swift in Sources */,
 				545CC4F62C5F7CE000EE5F60 /* TodoCell.swift in Sources */,

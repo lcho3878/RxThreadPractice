@@ -126,11 +126,19 @@ final class ShoppingViewController: UIViewController {
             }
             .subscribe(with: self) { owner, text in
                 guard !text.isEmpty else { return }
-                owner.data.append(Todo(content: text))
+                owner.data.append(Todo(content: text + "\(owner.data.count)"))
                 owner.list.onNext(owner.data)
             }
             .disposed(by: disposeBag)
         
+        tableView.rx.modelSelected(Todo.self)
+            .map { $0.content }
+            .bind(with: self) { owner, content in
+                let detailVC = TodoDetailViewController()
+                detailVC.content = content
+                owner.navigationController?.pushViewController(detailVC, animated: true)
+            }
+            .disposed(by: disposeBag)
         
     }
     
