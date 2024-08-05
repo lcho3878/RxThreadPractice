@@ -33,6 +33,7 @@ final class ShoppingViewController: UIViewController {
     
     private let checkTapSubject = PublishSubject<Int>()
     private let starTapSubject = PublishSubject<Int>()
+    private let contentSubject = PublishSubject<String>()
     
     private let grayView = {
         let view = UIView()
@@ -102,7 +103,7 @@ final class ShoppingViewController: UIViewController {
 
     
     private func bind() {
-        let input = ShoppingViewModel.Input(checkTap: checkTapSubject, starTap: starTapSubject)
+        let input = ShoppingViewModel.Input(checkTap: checkTapSubject, starTap: starTapSubject, addTap: addButton.rx.tap, content: contentSubject)
         
         let output = viewModel.transfrom(input: input)
         
@@ -122,17 +123,21 @@ final class ShoppingViewController: UIViewController {
             }
             .disposed(by: disposeBag)
 
+        searchTextField.rx.text.orEmpty
+            .bind(with: self, onNext: { owner, text in
+                owner.contentSubject.onNext(text)
+            })
+            .disposed(by: disposeBag)
         
-//        addButton.rx.tap
-//            .withLatestFrom(searchTextField.rx.text.orEmpty) { _, text in
-//                return text
-//            }
-//            .subscribe(with: self) { owner, text in
-//                guard !text.isEmpty else { return }
-//                owner.data.append(Todo(content: text + "\(owner.data.count)"))
-//                owner.list.onNext(owner.data)
-//            }
-//            .disposed(by: disposeBag)
+        output.addTap
+            .bind(with: self) { owner, _ in
+                owner.contentSubject.onNext("")
+                owner.searchTextField.rx.text.orEmpty.onNext("")
+            }
+            .disposed(by: disposeBag)
+        
+
+        
         
         tableView.rx.modelSelected(Todo.self)
             .map { $0.content }
@@ -157,10 +162,13 @@ class ShoppingViewModel {
     struct Input {
         let checkTap: PublishSubject<Int>
         let starTap: PublishSubject<Int>
+        let addTap: ControlEvent<Void>
+        let content: PublishSubject<String>
     }
     
     struct Output {
 //         let checkTap: BehaviorSubject<[Todo]>
+        let addTap: ControlEvent<Void>
     }
     
     func transfrom(input: Input) -> Output {
@@ -176,6 +184,19 @@ class ShoppingViewModel {
         })
             .disposed(by: disposeBag)
         
-        return Output()
+        input.addTap
+            .withLatestFrom(input.content)
+             { _, text in
+                print("latest: \(text)")
+                return text }
+            .bind(with: self) { owner, text in
+                print("text: \(text)")
+                guard !text.isEmpty else { return }
+                owner.data.append(Todo(content: text))
+                owner.list.onNext(owner.data)
+            }
+            .disposed(by: disposeBag)
+        
+        return Output(addTap: input.addTap)
     }
 }
