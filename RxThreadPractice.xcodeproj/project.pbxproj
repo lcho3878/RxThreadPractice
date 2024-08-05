@@ -33,6 +33,7 @@
 		545CC4F42C5F575200EE5F60 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F32C5F575200EE5F60 /* ShoppingViewController.swift */; };
 		545CC4F62C5F7CE000EE5F60 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F52C5F7CE000EE5F60 /* TodoCell.swift */; };
 		545CC4F82C5F8AD600EE5F60 /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4F72C5F8AD600EE5F60 /* TodoDetailViewController.swift */; };
+		545CC4FE2C6088EC00EE5F60 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4FD2C6088EC00EE5F60 /* BirthdayViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		545CC4F32C5F575200EE5F60 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		545CC4F52C5F7CE000EE5F60 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		545CC4F72C5F8AD600EE5F60 /* TodoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
+		545CC4FD2C6088EC00EE5F60 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				545CC4CA2C5CAFE800EE5F60 /* BirthdayViewController.swift */,
+				545CC4FD2C6088EC00EE5F60 /* BirthdayViewModel.swift */,
 				545CC4CB2C5CAFE800EE5F60 /* NicknameViewController.swift */,
 				545CC4CC2C5CAFE800EE5F60 /* PhoneViewController.swift */,
 			);
@@ -256,6 +259,7 @@
 				545CC4F42C5F575200EE5F60 /* ShoppingViewController.swift in Sources */,
 				545CC4F62C5F7CE000EE5F60 /* TodoCell.swift in Sources */,
 				545CC4DF2C5CAFE900EE5F60 /* SignUpViewController.swift in Sources */,
+				545CC4FE2C6088EC00EE5F60 /* BirthdayViewModel.swift in Sources */,
 				545CC4DB2C5CAFE900EE5F60 /* BirthdayViewController.swift in Sources */,
 				545CC4DE2C5CAFE900EE5F60 /* PasswordViewController.swift in Sources */,
 				545CC4DD2C5CAFE900EE5F60 /* PhoneViewController.swift in Sources */,

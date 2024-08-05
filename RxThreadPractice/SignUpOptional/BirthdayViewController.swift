@@ -65,9 +65,9 @@ class BirthdayViewController: UIViewController {
   
     let nextButton = PointButton(title: "가입하기")
     
-    let year = PublishSubject<Int>()
-    let month = PublishSubject<Int>()
-    let day = PublishSubject<Int>()
+
+    
+    private let viewModel = BirthdayViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,67 +117,30 @@ class BirthdayViewController: UIViewController {
     }
 
     private func bind() {
-        year.bind(with: self) { owner, year in
-            owner.yearLabel.rx.text.onNext("\(year)년")
-        }
-        .disposed(by: disposeBag)
+        let input = BirthdayViewModel.Input(date: birthDayPicker.rx.date)
         
-        month.bind(with: self) { owner, month in
-            owner.monthLabel.rx.text.onNext("\(month)월")
-        }
-        .disposed(by: disposeBag)
+        let output = viewModel.transform(input: input)
         
-        day.bind(with: self) { owner, day in
-            owner.dayLabel.rx.text.onNext("\(day)일")
-        }
-        .disposed(by: disposeBag)
-        
-        birthDayPicker.rx.date
-            .bind(with: self) { owner, date in
-                let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
-                guard let year = components.year,
-                let month = components.month,
-                let day = components.day else { return }
-                owner.year.onNext(year)
-                owner.month.onNext(month)
-                owner.day.onNext(day)
-            }
+        output.year
+            .bind(to: yearLabel.rx.text)
             .disposed(by: disposeBag)
         
-        birthDayPicker.rx.date
-            .map{
-                let target = Calendar.current.date(byAdding: .year, value: -17, to: Date())!
-                guard target > $0 else { return .fail(BirthdayValidation.fail)}
-                return .success(BirthdayValidation.success)
-            }
-            .bind(with: self) { owner, value in
-                owner.infoLabel.rx.validation.onNext(value)
-                
-            }
+        output.month
+            .bind(to: monthLabel.rx.text)
             .disposed(by: disposeBag)
         
-        birthDayPicker.rx.date
-            .map {
-                let target = Calendar.current.date(byAdding: .year, value: -17, to: Date())!
-                return target > $0
-            }
-            .bind(with: self) { owner, value in
-                owner.nextButton.rx.isEnabled.onNext(value)
-            }
+        output.day
+            .bind(to: dayLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.validation
+            .bind(to: infoLabel.rx.validation)
+            .disposed(by: disposeBag)
+        
+        output.isValid
+            .bind(to: nextButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
     
-    enum BirthdayValidation: ValidationResult {
-        case success
-        case fail
-        
-        var message: String {
-            switch self {
-            case .success:
-                return "가입 가능한 나이입니다."
-            case .fail:
-                return "만 17세 이상만 가입 가능합니다."
-            }
-        }
-    }
+
 }
