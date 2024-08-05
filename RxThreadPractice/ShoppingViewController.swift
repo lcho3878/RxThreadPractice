@@ -29,6 +29,11 @@ final class ShoppingViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+    private let viewModel = ShoppingViewModel()
+    
+    private let checkTapSubject = PublishSubject<Int>()
+    private let starTapSubject = PublishSubject<Int>()
+    
     private let grayView = {
         let view = UIView()
         view.backgroundColor = .systemGray5
@@ -55,11 +60,6 @@ final class ShoppingViewController: UIViewController {
         view.register(TodoCell.self, forCellReuseIdentifier: TodoCell.id)
         return view
     }()
-    
-    var data = TodoDummy.dummy
-    
-//    lazy var list = Observable.just(data)
-    lazy var list = BehaviorSubject(value: data)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,39 +97,42 @@ final class ShoppingViewController: UIViewController {
             $0.horizontalEdges.equalTo(grayView)
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+        
     }
+
     
     private func bind() {
-
+        let input = ShoppingViewModel.Input(checkTap: checkTapSubject, starTap: starTapSubject)
         
-        list.bind(to: tableView.rx.items(cellIdentifier: TodoCell.id, cellType: TodoCell.self)) { row, element, cell in
-            cell.configureDate(element)
-            cell.checkButton.rx.tap
-                .bind(with: self) { owner, _ in
-                    owner.data[row].isComleted.toggle()
-                    owner.list.onNext(owner.data)
-                }
-                .disposed(by: cell.disposeBag)
-            
-            cell.starButton.rx.tap
-                .bind(with: self) { owner, _ in
-                    owner.data[row].isStared.toggle()
-                    owner.list.onNext(owner.data)
-                }
-                .disposed(by: cell.disposeBag)
-        }
-        .disposed(by: disposeBag)
+        let output = viewModel.transfrom(input: input)
         
-        addButton.rx.tap
-            .withLatestFrom(searchTextField.rx.text.orEmpty) { _, text in
-                return text
-            }
-            .subscribe(with: self) { owner, text in
-                guard !text.isEmpty else { return }
-                owner.data.append(Todo(content: text + "\(owner.data.count)"))
-                owner.list.onNext(owner.data)
+        viewModel.list
+            .bind(to: tableView.rx.items(cellIdentifier: TodoCell.id, cellType: TodoCell.self)) { [weak self] row, element, cell in
+                cell.configureDate(element)
+                guard let self = self else { return }
+                cell.checkButton.rx.tap
+                    .map { row }
+                    .bind(to: self.checkTapSubject)
+                    .disposed(by: cell.disposeBag)
+                
+                cell.starButton.rx.tap
+                    .map { row }
+                    .bind(to: self.starTapSubject)
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
+
+        
+//        addButton.rx.tap
+//            .withLatestFrom(searchTextField.rx.text.orEmpty) { _, text in
+//                return text
+//            }
+//            .subscribe(with: self) { owner, text in
+//                guard !text.isEmpty else { return }
+//                owner.data.append(Todo(content: text + "\(owner.data.count)"))
+//                owner.list.onNext(owner.data)
+//            }
+//            .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Todo.self)
             .map { $0.content }
@@ -142,4 +145,37 @@ final class ShoppingViewController: UIViewController {
         
     }
     
+}
+
+class ShoppingViewModel {
+    let disposeBag = DisposeBag()
+    
+    var data = TodoDummy.dummy
+
+    lazy var list = BehaviorSubject(value: data)
+    
+    struct Input {
+        let checkTap: PublishSubject<Int>
+        let starTap: PublishSubject<Int>
+    }
+    
+    struct Output {
+//         let checkTap: BehaviorSubject<[Todo]>
+    }
+    
+    func transfrom(input: Input) -> Output {
+        input.checkTap.bind(with: self, onNext: { owner, row in
+            owner.data[row].isComleted.toggle()
+            owner.list.onNext(owner.data)
+        })
+            .disposed(by: disposeBag)
+        
+        input.starTap.bind(with: self, onNext: { owner, row in
+            owner.data[row].isStared.toggle()
+            owner.list.onNext(owner.data)
+        })
+            .disposed(by: disposeBag)
+        
+        return Output()
+    }
 }
