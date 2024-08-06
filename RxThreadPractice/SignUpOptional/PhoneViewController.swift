@@ -12,6 +12,8 @@ import RxCocoa
 
 class PhoneViewController: UIViewController {
    
+    private let viewModel = PhoneViewModel()
+    
     private let disposeBag = DisposeBag()
     
     let phoneTextField = SignTextField(placeholderText: "연락처를 입력해주세요")
@@ -60,16 +62,28 @@ class PhoneViewController: UIViewController {
     }
 
     private func bind() {
-        phoneTextField.rx.text.orEmpty
-            .map{
-                guard Int($0) != nil else { return .fail(PhoneValidation.notNumberError)}
-                guard $0.count >= 10 else { return .fail(PhoneValidation.lengthError) }
-                return .success(PhoneValidation.success)
-            }
-            .bind(with: self) { owner, value in
-                owner.validationLabel.rx.validation.onNext(value)
+        let input = PhoneViewModel.Input(phoneNumber: phoneTextField.rx.text.orEmpty)
+        let output = viewModel.transform(input: input)
+        
+        let validation = output.validation.share() 
+        
+        validation
+            .bind(with: self) { owner, validation in
+                owner.validationLabel.rx.validation.onNext(validation)
             }
             .disposed(by: disposeBag)
+        
+//        let a = phoneTextField.rx.text.orEmpty
+//            .map{
+//                guard Int($0) != nil else { return .fail(PhoneValidation.notNumberError)}
+//                guard $0.count >= 10 else { return .fail(PhoneValidation.lengthError) }
+//                return .success(PhoneValidation.success)
+//            }
+//        a
+//            .bind(with: self) { owner, value in
+//                owner.validationLabel.rx.validation.onNext(value)
+//            }
+//            .disposed(by: disposeBag)
     }
     enum PhoneValidation: ValidationResult {
         case success

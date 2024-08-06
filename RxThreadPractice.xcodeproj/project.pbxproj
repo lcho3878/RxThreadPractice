@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		543488E02C6272AE00CD877D /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543488DF2C6272AE00CD877D /* PhoneViewModel.swift */; };
 		545CC4B72C5CAFC400EE5F60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4B62C5CAFC400EE5F60 /* AppDelegate.swift */; };
 		545CC4B92C5CAFC400EE5F60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4B82C5CAFC400EE5F60 /* SceneDelegate.swift */; };
 		545CC4BB2C5CAFC400EE5F60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4BA2C5CAFC400EE5F60 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		543488DF2C6272AE00CD877D /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		545CC4B32C5CAFC400EE5F60 /* RxThreadPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxThreadPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		545CC4B62C5CAFC400EE5F60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		545CC4B82C5CAFC400EE5F60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				545CC4FD2C6088EC00EE5F60 /* BirthdayViewModel.swift */,
 				545CC4CB2C5CAFE800EE5F60 /* NicknameViewController.swift */,
 				545CC4CC2C5CAFE800EE5F60 /* PhoneViewController.swift */,
+				543488DF2C6272AE00CD877D /* PhoneViewModel.swift */,
 			);
 			path = SignUpOptional;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				545CC4DE2C5CAFE900EE5F60 /* PasswordViewController.swift in Sources */,
 				545CC4DD2C5CAFE900EE5F60 /* PhoneViewController.swift in Sources */,
 				545CC4B72C5CAFC400EE5F60 /* AppDelegate.swift in Sources */,
+				543488E02C6272AE00CD877D /* PhoneViewModel.swift in Sources */,
 				545CC4B92C5CAFC400EE5F60 /* SceneDelegate.swift in Sources */,
 				545CC4E12C5CAFE900EE5F60 /* SearchTableViewCell.swift in Sources */,
 				545CC4F22C5CB5CE00EE5F60 /* ValidationLabel.swift in Sources */,
