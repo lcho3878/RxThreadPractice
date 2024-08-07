@@ -62,6 +62,19 @@ final class ShoppingViewController: UIViewController {
         return view
     }()
     
+    private let collectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout())
+        view.register(RecommendCell.self, forCellWithReuseIdentifier: RecommendCell.id)
+        return view
+    }()
+    
+    static func layout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 100, height: 50)
+        return layout
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -74,6 +87,7 @@ final class ShoppingViewController: UIViewController {
         view.addSubview(grayView)
         grayView.addSubview(addButton)
         grayView.addSubview(searchTextField)
+        view.addSubview(collectionView)
         view.addSubview(tableView)
         
         grayView.snp.makeConstraints {
@@ -93,14 +107,19 @@ final class ShoppingViewController: UIViewController {
             $0.trailing.equalTo(addButton.snp.leading).offset(8)
         }
         
-        tableView.snp.makeConstraints {
+        collectionView.snp.makeConstraints {
             $0.top.equalTo(grayView.snp.bottom).offset(8)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(50)
+        }
+        
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(collectionView.snp.bottom).offset(8)
             $0.horizontalEdges.equalTo(grayView)
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
     }
-
     
     private func bind() {
         let input = ShoppingViewModel.Input(checkTap: checkTapSubject, starTap: starTapSubject, addTap: addButton.rx.tap, content: contentSubject)
@@ -127,6 +146,12 @@ final class ShoppingViewController: UIViewController {
             .bind(with: self, onNext: { owner, text in
                 owner.contentSubject.onNext(text)
             })
+            .disposed(by: disposeBag)
+        
+        output.recommendList
+            .bind(to: collectionView.rx.items(cellIdentifier: RecommendCell.id, cellType: RecommendCell.self)) { row, element, cell in
+                cell.configureDate(element)
+            }
             .disposed(by: disposeBag)
         
         output.addTap

@@ -12,6 +12,8 @@ class ShoppingViewModel {
     let disposeBag = DisposeBag()
     
     var data = TodoDummy.dummy
+    
+    var recommendList = ["아이패드", "에어팟", "맥북", "맥미니", "맥맥맥", "맥123"]
 
 //    lazy var list = BehaviorSubject(value: data)
     
@@ -26,6 +28,7 @@ class ShoppingViewModel {
 //         let checkTap: BehaviorSubject<[Todo]>
         let addTap: ControlEvent<Void>
         let list: BehaviorSubject<[Todo]>
+        let recommendList: Observable<[String]>
     }
     
     func transfrom(input: Input) -> Output {
@@ -55,6 +58,6 @@ class ShoppingViewModel {
             }
             .disposed(by: disposeBag)
         
-        return Output(addTap: input.addTap, list: list)
+        return Output(addTap: input.addTap, list: list, recommendList: Observable.just(recommendList))
     }
 }
