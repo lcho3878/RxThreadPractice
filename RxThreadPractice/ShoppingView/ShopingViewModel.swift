@@ -22,6 +22,7 @@ class ShoppingViewModel {
         let starTap: PublishSubject<Int>
         let addTap: ControlEvent<Void>
         let content: PublishSubject<String>
+        let collectionViewTap: PublishSubject<String>
     }
     
     struct Output {
@@ -56,6 +57,13 @@ class ShoppingViewModel {
                 owner.data.append(Todo(content: text))
                 list.onNext(owner.data)
             }
+            .disposed(by: disposeBag)
+    
+        input.collectionViewTap
+            .subscribe(with: self, onNext: { owner, value in
+                owner.data.append(Todo(content: value))
+                list.onNext(owner.data)
+            })
             .disposed(by: disposeBag)
         
         return Output(addTap: input.addTap, list: list, recommendList: Observable.just(recommendList))

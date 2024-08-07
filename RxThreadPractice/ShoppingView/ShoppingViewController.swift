@@ -122,7 +122,9 @@ final class ShoppingViewController: UIViewController {
     }
     
     private func bind() {
-        let input = ShoppingViewModel.Input(checkTap: checkTapSubject, starTap: starTapSubject, addTap: addButton.rx.tap, content: contentSubject)
+        let recommentItem = PublishSubject<String>()
+        
+        let input = ShoppingViewModel.Input(checkTap: checkTapSubject, starTap: starTapSubject, addTap: addButton.rx.tap, content: contentSubject, collectionViewTap: recommentItem)
         
         let output = viewModel.transfrom(input: input)
         
@@ -161,8 +163,11 @@ final class ShoppingViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-
-        
+        collectionView.rx.modelSelected(String.self)
+            .bind { value in
+                recommentItem.onNext(value)
+            }
+            .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Todo.self)
             .map { $0.content }
