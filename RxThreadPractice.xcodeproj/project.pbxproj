@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		543488E02C6272AE00CD877D /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543488DF2C6272AE00CD877D /* PhoneViewModel.swift */; };
+		543488ED2C635A8500CD877D /* ShopingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543488EC2C635A8500CD877D /* ShopingViewModel.swift */; };
 		545CC4B72C5CAFC400EE5F60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4B62C5CAFC400EE5F60 /* AppDelegate.swift */; };
 		545CC4B92C5CAFC400EE5F60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4B82C5CAFC400EE5F60 /* SceneDelegate.swift */; };
 		545CC4BB2C5CAFC400EE5F60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545CC4BA2C5CAFC400EE5F60 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		543488DF2C6272AE00CD877D /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
+		543488EC2C635A8500CD877D /* ShopingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingViewModel.swift; sourceTree = "<group>"; };
 		545CC4B32C5CAFC400EE5F60 /* RxThreadPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxThreadPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		545CC4B62C5CAFC400EE5F60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		545CC4B82C5CAFC400EE5F60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				545CC4C42C5CAFC500EE5F60 /* Info.plist */,
 				545CC4E72C5CB00200EE5F60 /* Resource.swift */,
 				545CC4F32C5F575200EE5F60 /* ShoppingViewController.swift */,
+				543488EC2C635A8500CD877D /* ShopingViewModel.swift */,
 				545CC4F72C5F8AD600EE5F60 /* TodoDetailViewController.swift */,
 				545CC4F52C5F7CE000EE5F60 /* TodoCell.swift */,
 			);
@@ -258,6 +261,7 @@
 				545CC4E42C5CAFE900EE5F60 /* SignTextField.swift in Sources */,
 				545CC4BB2C5CAFC400EE5F60 /* ViewController.swift in Sources */,
 				545CC4F82C5F8AD600EE5F60 /* TodoDetailViewController.swift in Sources */,
+				543488ED2C635A8500CD877D /* ShopingViewModel.swift in Sources */,
 				545CC4DC2C5CAFE900EE5F60 /* NicknameViewController.swift in Sources */,
 				545CC4F42C5F575200EE5F60 /* ShoppingViewController.swift in Sources */,
 				545CC4F62C5F7CE000EE5F60 /* TodoCell.swift in Sources */,

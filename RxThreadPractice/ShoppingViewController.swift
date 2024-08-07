@@ -107,7 +107,7 @@ final class ShoppingViewController: UIViewController {
         
         let output = viewModel.transfrom(input: input)
         
-        viewModel.list
+        output.list
             .bind(to: tableView.rx.items(cellIdentifier: TodoCell.id, cellType: TodoCell.self)) { [weak self] row, element, cell in
                 cell.configureDate(element)
                 guard let self = self else { return }
@@ -152,51 +152,4 @@ final class ShoppingViewController: UIViewController {
     
 }
 
-class ShoppingViewModel {
-    let disposeBag = DisposeBag()
-    
-    var data = TodoDummy.dummy
 
-    lazy var list = BehaviorSubject(value: data)
-    
-    struct Input {
-        let checkTap: PublishSubject<Int>
-        let starTap: PublishSubject<Int>
-        let addTap: ControlEvent<Void>
-        let content: PublishSubject<String>
-    }
-    
-    struct Output {
-//         let checkTap: BehaviorSubject<[Todo]>
-        let addTap: ControlEvent<Void>
-    }
-    
-    func transfrom(input: Input) -> Output {
-        input.checkTap.bind(with: self, onNext: { owner, row in
-            owner.data[row].isComleted.toggle()
-            owner.list.onNext(owner.data)
-        })
-            .disposed(by: disposeBag)
-        
-        input.starTap.bind(with: self, onNext: { owner, row in
-            owner.data[row].isStared.toggle()
-            owner.list.onNext(owner.data)
-        })
-            .disposed(by: disposeBag)
-        
-        input.addTap
-            .withLatestFrom(input.content)
-             { _, text in
-                print("latest: \(text)")
-                return text }
-            .bind(with: self) { owner, text in
-                print("text: \(text)")
-                guard !text.isEmpty else { return }
-                owner.data.append(Todo(content: text))
-                owner.list.onNext(owner.data)
-            }
-            .disposed(by: disposeBag)
-        
-        return Output(addTap: input.addTap)
-    }
-}
